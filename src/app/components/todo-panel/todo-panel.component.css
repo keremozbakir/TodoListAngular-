@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(94, 103, 103);
+}
+
+.droplist{
+  
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(172, 40, 68);
+    width:30%;
+}
+ 
+.todo-panel{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(172, 40, 68);
+
+}
+.column-title{
+display: flex;
+justify-content: center
+};
+
+.cdk-drag-preview{
+    background-color: rgb(172, 40, 68);
+}
+.cdk-drag-placeholder{
+    opacity: 0;
+}
+
+.bin{
+    width: 20%;
+    background-color: rgb(172, 40, 68);
+    padding: 0;
+    margin: 0%;
+    border: 2px solid rgb(75, 62, 62);
+}
+
+.drop-item{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(172, 40, 68);
+   
+}
+mat-sidenav-container{
+    height: 100%;
+}
+
+mat-sidenav, mat-sidenav-content{
+    padding: 16px;
+    background-color: rgb(172, 40, 68);
+}
+mat-sidenav{
+    background-color: coral;
+    width: 20%;
+    z-index: 4444444;
+}
+ 

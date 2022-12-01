@@ -1,0 +1,87 @@
+
+ <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon (click)="opened=!opened">menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+       
+    </mat-toolbar>
+  </p>
+  
+
+   <mat-sidenav-container>
+    <!-- <mat-sidenav  mode="side" [(opened)]="opened"> -->
+      <mat-sidenav  mode="side" opened>
+      <app-add-todo></app-add-todo>
+    </mat-sidenav>
+    <!-- <mat-sidenav opened mode="push">Start</mat-sidenav> -->
+    <!-- <mat-sidenav-content (click)="opened=!opened" > 
+  
+        
+
+    </mat-sidenav-content> -->
+
+    <div class="todo-panel">
+
+        <div 
+        cdkDropList
+        [cdkDropListConnectedTo]="[doneList,binList]"
+        cdkDeropListOrientation="vertical"
+        #todoList="cdkDropList"
+        class="droplist"
+        (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListData]="data"
+        >
+        <h2 class="column-title"> Todos</h2>
+        <app-todo class="drop-item"
+        *ngFor="let item of data"
+           [title]="item.title"
+           [text]="item.text"
+       ></app-todo>  
+    </div>
+      
+    <div 
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListConnectedTo]="[todoList,binList]"
+        cdkDeropListOrientation="vertical"
+        class="droplist"
+        (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListData]="data2"
+        >
+        <h2 class="column-title"> Done</h2>
+        <app-todo class="drop-item"
+        *ngFor="let item of data2"
+           [title]="item.title"
+           [text]="item.text"
+    ></app-todo>  
+    </div>
+    
+    <div
+     class="bin"
+     cdkDropList
+      #binList="cdkDropList"
+      [cdkDropListConnectedTo]="[doneList,todoList]"
+      (cdkDropListDropped)="onDrop($event)"
+      [cdkDropListData]="bin"
+     
+     >
+     <h2 class="column-title">Delete</h2>
+     <app-todo class="drop-item"
+        *ngFor="let item of bin"
+           [title]="item.title"
+           [text]="item.text"
+       ></app-todo> 
+    
+    </div>
+    </div>
+    
+
+  </mat-sidenav-container>
+
+  

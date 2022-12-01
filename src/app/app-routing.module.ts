@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { TodoPanelComponent } from './components/todo-panel/todo-panel.component';
+import { TodoComponent } from './components/todo/todo.component';
+const routes: Routes = [
+  { path: 'todos', component: TodoComponent },
+  {path:"",component:TodoPanelComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

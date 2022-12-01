@@ -1,0 +1,47 @@
+
+/* .margin{
+  margin-left:40%;
+  margin-right: 20%;
+} */
+/* 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    background-color: lightblue;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  } */
+
+ 
+ 
+.todo{
+  
+  
+  display: inline-block;
+  background-color: rgb(147, 90, 113);
+  width:50%;
+  border: 1px solid gray;
+}
+.card-title{
+  word-wrap: break-word ;
+  height: auto;
+  max-width: 230px;
+  padding-bottom: 7px;
+  display: flex;
+  justify-content: left;
+  color:red;
+
+}
+
+
+.card-text{
+   
+  word-wrap: break-word ;
+  height: auto;
+  max-width: 200px;
+}
+
+ 
