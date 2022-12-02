@@ -1,18 +1,52 @@
-.text-input-area{
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+/* .text-input-area{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: hori;
     width: auto;
     margin: auto;
     height: auto;
     color: red;
+    
 }
 
-textarea {
-    resize: none;
+
+textarea{
+  resize:none
+}
+textarea.input-area{
+   
+  font-size: 1.2rem;
+}
+
+textarea.input-area-title{
+   
+  font-size: 1.3rem;
+  }
+  
+
+.input-area-title{
+  width: 90%;
+  height: 60px;
+  
+}
+  .input-area{
+    background-color: rgb(134, 48, 48);
+    width:  90%;
+    height: 300px;
   }
 
-  .input-area{
-    background-color: red;
-    width:  80%;
-    height: 20%;
-  }
+  .mat-raised-button{
+    width: 92%;
+  } */

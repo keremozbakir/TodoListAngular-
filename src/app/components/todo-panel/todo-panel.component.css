@@ -7,7 +7,7 @@ body{
     display:flex;
     flex-direction: column;
     background-color: rgb(172, 40, 68);
-    width:30%;
+    width:35%;
 }
  
 .todo-panel{
@@ -18,7 +18,10 @@ body{
 }
 .column-title{
 display: flex;
-justify-content: center
+justify-content :center;
+ 
+left: 21%;
+margin-top: 2%;
 };
 
 .cdk-drag-preview{
@@ -27,6 +30,8 @@ justify-content: center
 .cdk-drag-placeholder{
     opacity: 0;
 }
+
+ 
 
 .bin{
     width: 20%;
@@ -38,7 +43,7 @@ justify-content: center
 
 .drop-item{
     display: flex;
-    justify-content: center;
+    justify-content :center;
     background-color: rgb(172, 40, 68);
    
 }

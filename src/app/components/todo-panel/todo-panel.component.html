@@ -15,19 +15,14 @@
   
 
    <mat-sidenav-container>
-    <!-- <mat-sidenav  mode="side" [(opened)]="opened"> -->
-      <mat-sidenav  mode="side" opened>
-      <app-add-todo></app-add-todo>
+    <mat-sidenav  mode="side" [(opened)]="opened">
+      
+      <app-add-todo (addNewTodo)="addNewTodo($event)" ></app-add-todo>
     </mat-sidenav>
-    <!-- <mat-sidenav opened mode="push">Start</mat-sidenav> -->
-    <!-- <mat-sidenav-content (click)="opened=!opened" > 
-  
-        
-
-    </mat-sidenav-content> -->
-
+     
+ 
     <div class="todo-panel">
-
+      
         <div 
         cdkDropList
         [cdkDropListConnectedTo]="[doneList,binList]"
@@ -37,7 +32,10 @@
         (cdkDropListDropped)="onDrop($event)"
         [cdkDropListData]="data"
         >
+
+        
         <h2 class="column-title"> Todos</h2>
+       
         <app-todo class="drop-item"
         *ngFor="let item of data"
            [title]="item.title"

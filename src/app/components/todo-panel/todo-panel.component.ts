@@ -13,7 +13,12 @@ export class TodoPanelComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addNewTodo( data:any) {
+    this.data.unshift({ title: data.title, text: data.text })
+    console.log(this.data)
+    console.log("saved!")
+  }
+  selected!: Date | null;
   opened = false;
 
 

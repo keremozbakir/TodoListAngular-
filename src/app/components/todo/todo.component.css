@@ -32,7 +32,7 @@
   padding-bottom: 7px;
   display: flex;
   justify-content: left;
-  color:red;
+  color:rgb(178, 125, 125);
 
 }
 
@@ -44,4 +44,20 @@
   max-width: 200px;
 }
 
- 
+.cdk-drag-preview{
+  background-color: rgb(106, 144, 149);
+  box-shadow: 0px 0px 8px 7px gainsboro;
+  
+}
+
+.cdk-drag-placeholder{
+  opacity: 0;
+}
+
+/* .cdk-drag-animating{
+  transition:transform 200ms cubic-bezier(0,0,0.3,0)
+} */
+
+/* .cdk-drop-list-dragging .cdk-drag{
+  transition:transform 100ms cubic-bezier(0,0,0.3,0)
+} */
