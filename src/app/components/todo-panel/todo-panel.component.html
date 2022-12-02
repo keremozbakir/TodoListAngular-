@@ -4,13 +4,15 @@
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon (click)="opened=!opened">menu</mat-icon>
       </button>
-      <span>My App</span>
+      <span style="color:black">Todo Planner</span>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <button style="color:black" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>favorite</mat-icon>
       </button>
        
     </mat-toolbar>
+
+        
   </p>
   
 
@@ -34,7 +36,9 @@
         >
 
         
-        <h2 class="column-title"> Todos</h2>
+
+        
+        <h2 class="column-title"> Todos ({{data.length}})</h2>
        
         <app-todo class="drop-item"
         *ngFor="let item of data"
@@ -52,7 +56,11 @@
         (cdkDropListDropped)="onDrop($event)"
         [cdkDropListData]="data2"
         >
-        <h2 class="column-title"> Done</h2>
+
+        
+
+
+        <h2 class="column-title"> Done ({{data2.length}})</h2>
         <app-todo class="drop-item"
         *ngFor="let item of data2"
            [title]="item.title"
@@ -70,6 +78,22 @@
      
      >
      <h2 class="column-title">Delete</h2>
+     <h5 class="column-title">(Drop here to delete!)</h5>
+     <circle-progress
+        class="circular-progress"
+        [percent]="percentage"
+        [radius]="150"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#78C000'"
+        [innerStrokeColor]="'#C7E596'"
+        [unitsFontSize]="'20'"
+        [animation]="true"
+        [subtitle]="'Complete'"
+        [subtitleFontSize]="'30'"
+        [animationDuration]="2000"
+            ></circle-progress>
+
      <app-todo class="drop-item"
         *ngFor="let item of bin"
            [title]="item.title"

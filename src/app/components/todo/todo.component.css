@@ -21,9 +21,13 @@
   
   
   display: inline-block;
-  background-color: rgb(147, 90, 113);
+  /* background-color: rgb(147, 90, 113); */
+  background-color: #80DED9;
   width:50%;
   border: 1px solid gray;
+  filter: brightness(88%);
+  border-radius: 2%;
+
 }
 .card-title{
   word-wrap: break-word ;
@@ -32,7 +36,7 @@
   padding-bottom: 7px;
   display: flex;
   justify-content: left;
-  color:rgb(178, 125, 125);
+  color:#7B1FA2
 
 }
 
@@ -42,16 +46,24 @@
   word-wrap: break-word ;
   height: auto;
   max-width: 200px;
+  color: #221E22;
 }
 
 .cdk-drag-preview{
   background-color: rgb(106, 144, 149);
-  box-shadow: 0px 0px 8px 7px gainsboro;
+  /* box-shadow: 0px 0px 8px 7px gainsboro; */
   
 }
 
 .cdk-drag-placeholder{
   opacity: 0;
+}
+
+.mat-button{
+  font-size: 0.7rem;
+  width:2%;
+  height: 2%;
+ 
 }
 
 /* .cdk-drag-animating{

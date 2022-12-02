@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "todoangular-9735d": {
+      "hosting": {
+        "todoList": [
+          "todoangular-9735d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "todoangular-9735d"
+  }
+}

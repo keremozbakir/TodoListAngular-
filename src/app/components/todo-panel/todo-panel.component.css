@@ -1,32 +1,33 @@
-body{
-    background-color: rgb(94, 103, 103);
-}
+ 
 
 .droplist{
   
     display:flex;
     flex-direction: column;
-    background-color: rgb(172, 40, 68);
+    /* background-color: rgb(172, 40, 68); */
     width:35%;
+   
 }
  
 .todo-panel{
+ 
     display: flex;
     justify-content: space-around;
-    background-color: rgb(172, 40, 68);
-
+    /* background-color: rgb(172, 40, 68); */
+    background-color:#6D9DC5  ;
+    min-height: 100%;
 }
 .column-title{
+
 display: flex;
 justify-content :center;
- 
+color:  #FFECD6; 
 left: 21%;
 margin-top: 2%;
+
 };
 
-.cdk-drag-preview{
-    background-color: rgb(172, 40, 68);
-}
+ 
 .cdk-drag-placeholder{
     opacity: 0;
 }
@@ -35,29 +36,43 @@ margin-top: 2%;
 
 .bin{
     width: 20%;
-    background-color: rgb(172, 40, 68);
+    /* background-color: rgb(172, 40, 68); */
     padding: 0;
     margin: 0%;
-    border: 2px solid rgb(75, 62, 62);
+     
 }
 
 .drop-item{
     display: flex;
     justify-content :center;
-    background-color: rgb(172, 40, 68);
-   
+    /* background-color: rgb(172, 40, 68);
+    */
 }
+.circular-progress{
+    position: absolute;
+     right: 6%;
+     top:25%;
+}
+
+ng-star-inserted{
+    font-size: 2rem;
+}
+
 mat-sidenav-container{
     height: 100%;
 }
 
 mat-sidenav, mat-sidenav-content{
-    padding: 16px;
-    background-color: rgb(172, 40, 68);
+    /* padding: 16px; */
+    /* background-color: rgb(172, 40, 68);
+   
+ */
+ background-color:#119DA4
 }
 mat-sidenav{
-    background-color: coral;
+    /* background-color: coral; */
     width: 20%;
     z-index: 4444444;
 }
+ 
  

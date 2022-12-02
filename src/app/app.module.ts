@@ -7,11 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoComponent } from './components/todo/todo.component';
 import { TodoPanelComponent } from './components/todo-panel/todo-panel.component';
 import { MaterialModule } from './material/material.module';
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { WordBreakPipe } from './word-break.pipe';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
-@NgModule({
+ 
+ 
+ @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
@@ -20,13 +23,29 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
     AddTodoComponent
   ],
   imports: [
+  
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+  
+     
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+       
+    }), 
+
+    
   ],
-  providers: [],
+  providers: [  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

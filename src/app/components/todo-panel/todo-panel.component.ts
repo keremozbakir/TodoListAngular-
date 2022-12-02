@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop,moveItemInArray ,transferArrayItem} from '@angular/cdk/drag-drop';
-
+import { PercentageCalculatorService } from 'src/app/services/percentage-calculator.service';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-panel',
@@ -9,9 +10,12 @@ import { CdkDragDrop,moveItemInArray ,transferArrayItem} from '@angular/cdk/drag
 })
 export class TodoPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private percentageCalc:PercentageCalculatorService,private todoService:TodoService) { }
 
   ngOnInit(): void {
+    this.percentage = String(this.data.length / this.data2.length)
+    this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
+     
   }
   addNewTodo( data:any) {
     this.data.unshift({ title: data.title, text: data.text })
@@ -20,10 +24,13 @@ export class TodoPanelComponent implements OnInit {
   }
   selected!: Date | null;
   opened = false;
-
-
+  
+  percentage!: any;
   onDrop(event: CdkDragDrop<any[]>) {
-    if (event.previousContainer === event.container) {
+
+    
+      
+      if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
         event.previousIndex,
@@ -36,6 +43,15 @@ export class TodoPanelComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       )
+        this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
+        if (event.container.id == 'cdk-drop-list-2') {
+          console.log('its the bin')
+          var value: Object = event.container.data
+          console.log(value)
+          this.data2 = this.data2.filter(item => item !== value)
+          console.log(this.data2)
+          this.bin = []
+        }
     }
 
   }
