@@ -1,35 +1,130 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CdkDragDrop,moveItemInArray ,transferArrayItem} from '@angular/cdk/drag-drop';
 import { PercentageCalculatorService } from 'src/app/services/percentage-calculator.service';
 import { TodoService } from 'src/app/services/todo.service';
+import { coerceStringArray } from '@angular/cdk/coercion';
+import { JsonPipe } from '@angular/common';
+import { Todo } from 'src/app/todo';
+import { single } from 'rxjs';
+
+
+
 
 @Component({
   selector: 'app-todo-panel',
   templateUrl: './todo-panel.component.html',
   styleUrls: ['./todo-panel.component.css']
 })
+  
+  
+  
+  
 export class TodoPanelComponent implements OnInit {
 
-  constructor(private percentageCalc:PercentageCalculatorService,private todoService:TodoService) { }
+  constructor(private percentageCalc: PercentageCalculatorService, private todoService: TodoService) { }
+  
+  @HostListener('window:unload', [ '$event' ])
+   beforeUnloadHandler(event: { preventDefault: () => void; }) {
+   this.terminateFunction()
+   event.preventDefault();
+   return false;   
+  }
 
+
+  unloadHandler(event: any) {
+    this.terminateFunction( )
+  
+  } 
+  terminateFunction() {
+    localStorage.setItem('data1',JSON.stringify(this.data))
+  }
+
+  selected!: Date | null;
+  opened = false;
+  percentage!: any;
+  
+  buttonDisplayDone:string='none'
   ngOnInit(): void {
     this.percentage = String(this.data.length / this.data2.length)
     this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
-     
+    //localStorage.setItem('data1',JSON.stringify(this.data))
+    //var dataTemp = localStorage.getItem('data1') || '{"add new ":"item"}'
+    //this.data =JSON.parse(dataTemp)
   }
-  addNewTodo( data:any) {
-    this.data.unshift({ title: data.title, text: data.text })
-    console.log(this.data)
-    console.log("saved!")
+
+  addToDone(datam: any) {
+    const target ={
+      "title": datam.title,
+      "text":datam.text
+    }
+    const dataNew =this.data.filter((singleData)=>{
+      return singleData.title !== target.title && singleData.text !== target.text
+    })
+    this.data = dataNew
+    this.data2.unshift(target)
   }
-  selected!: Date | null;
-  opened = false;
-  
-  percentage!: any;
+
+  deleteTodo(arr: string, datam: any) {
+    var targetArray: Array<Todo>;
+    var liste: boolean = false;
+    const target ={
+      "title": datam.title,
+      "text":datam.text
+    }
+    console.log(arr);
+    console.log("------------------------------------------")
+    console.log(datam)
+    if (arr === "todoList") {
+      targetArray = this.data; 
+      liste = true
+    }
+    else {
+      targetArray=this.data2
+    }
+
+    const dataNew = targetArray.filter((singleData:any)=>{
+      return singleData.title !== target.title && singleData.text !== target.text
+    })
+    if (liste) {
+      this.data =dataNew
+    } else {
+      this.data2=dataNew
+    }
+    
+     console.log("delte button clicked")
+
+
+  }
+
+
+
+  addNewTodo(dataInput: any) {
+    var duplicate = false
+    this.data.forEach(element => {
+    if (element['title'] === dataInput.title && element['text'] === dataInput.text) {
+      console.log(element)
+      console.log("Duplicate")
+      duplicate = true;
+      }
+    });
+
+    if (!duplicate) {
+      this.data.unshift({title:dataInput.title,text:dataInput.text})
+    }
+    
+  }
+
+
+
+
+
+
+
+
+
+
   onDrop(event: CdkDragDrop<any[]>) {
 
-    
-      
       if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -58,7 +153,7 @@ export class TodoPanelComponent implements OnInit {
 
   bin:any=[]
 
-
+ // data:any=[]
 data=[{
   "title": "Augustus Downs Airport",
   "text": "Restriction of Abdominal Aorta, Perc Endo Approach"
@@ -123,7 +218,10 @@ data=[{
   }, {
     "title": "Skajo",
     "text": "Legal"
-  }]
+    }]
+  
+  
+  
 };
 
 

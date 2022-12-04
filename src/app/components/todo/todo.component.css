@@ -21,12 +21,14 @@
   
   
   display: inline-block;
-  /* background-color: rgb(147, 90, 113); */
-  background-color: #80DED9;
+  
+  background-color:#119DA4;
   width:50%;
   border: 1px solid gray;
-  filter: brightness(88%);
-  border-radius: 2%;
+  /* filter: brightness(88%); */
+  box-shadow: 8px 6px 8px 6px rgba(0, 0, 0, 0.47);  border-radius: 2%;
+  margin :15px
+
 
 }
 .card-title{

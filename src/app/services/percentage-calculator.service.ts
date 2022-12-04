@@ -10,11 +10,7 @@ export class PercentageCalculatorService {
   calculatePercentage(todo: number, done: number) {
     var total = todo + done
     var perc = done / total
-    
-    console.log(Math.ceil(perc * 100))
-    // if (done == 0) {
-    //   return 0
-    // }
+     
     return Math.ceil(perc * 100)
   }
 }

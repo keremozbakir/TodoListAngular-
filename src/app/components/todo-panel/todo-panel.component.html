@@ -1,6 +1,6 @@
 
  <p>
-    <mat-toolbar color="primary">
+    <mat-toolbar >
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon (click)="opened=!opened">menu</mat-icon>
       </button>
@@ -41,9 +41,13 @@
         <h2 class="column-title"> Todos ({{data.length}})</h2>
        
         <app-todo class="drop-item"
+        
         *ngFor="let item of data"
            [title]="item.title"
            [text]="item.text"
+           (addToDone)='addToDone($event)'
+           buttonText="Delete"
+           (deleteTodo)="deleteTodo('todoList',$event)"
        ></app-todo>  
     </div>
       
@@ -61,10 +65,15 @@
 
 
         <h2 class="column-title"> Done ({{data2.length}})</h2>
-        <app-todo class="drop-item"
+        <app-todo 
+        class="drop-item"
+
         *ngFor="let item of data2"
            [title]="item.title"
            [text]="item.text"
+           [buttondisplay]="buttonDisplayDone"
+           [buttonText]="'Delete'"
+           (deleteTodo)="deleteTodo('doneList',$event)"
     ></app-todo>  
     </div>
     

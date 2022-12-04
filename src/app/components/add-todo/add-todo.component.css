@@ -11,6 +11,11 @@
   
 }
 
+mat-toolbar.mat-primary {
+  background: #000000 !important;
+  color: #fff;
+}
+
 
 /* .text-input-area{
     display: flex;

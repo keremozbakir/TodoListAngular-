@@ -9,7 +9,7 @@
       <mat-card-subtitle class="card-text">{{text | wordBreak}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <!-- <button mat-button>Details</button> -->
-      <!-- <button mat-button>SHARE</button> -->
+      <button mat-button (click)="moveToDone(title,text)" [style.display]="(buttondisplay)">Done</button>
+      <button mat-button (click)="delTodo(title,text)">{{buttonText}}</button>
     </mat-card-actions>
   </mat-card>

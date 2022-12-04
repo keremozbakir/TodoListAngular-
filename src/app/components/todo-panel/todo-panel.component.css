@@ -14,14 +14,14 @@
     display: flex;
     justify-content: space-around;
     /* background-color: rgb(172, 40, 68); */
-    background-color:#6D9DC5  ;
+     background-color:#dedede  ;
     min-height: 100%;
 }
 .column-title{
 
 display: flex;
 justify-content :center;
-color:  #FFECD6; 
+color:  #61574b4a; 
 left: 21%;
 margin-top: 2%;
 
@@ -75,4 +75,6 @@ mat-sidenav{
     z-index: 4444444;
 }
  
- 
+mat-toolbar   {
+    background-color: rgb(91, 85, 85);
+}
