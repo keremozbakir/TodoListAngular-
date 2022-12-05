@@ -40,6 +40,7 @@ export class TodoPanelComponent implements OnInit {
   }
 
   selected!: Date | null;
+  
   opened = false;
   percentage!: any;
   
@@ -51,7 +52,8 @@ export class TodoPanelComponent implements OnInit {
     //var dataTemp = localStorage.getItem('data1') || '{"add new ":"item"}'
     //this.data =JSON.parse(dataTemp)
   }
-
+  openPanel() { this.opened = !this.opened };
+  
   addToDone(datam: any) {
     const target ={
       "title": datam.title,
@@ -62,6 +64,7 @@ export class TodoPanelComponent implements OnInit {
     })
     this.data = dataNew
     this.data2.unshift(target)
+    this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
   }
 
   deleteTodo(arr: string, datam: any) {
@@ -78,20 +81,15 @@ export class TodoPanelComponent implements OnInit {
       targetArray = this.data; 
       liste = true
     }
-    else {
-      targetArray=this.data2
-    }
+    else { targetArray=this.data2 }
 
     const dataNew = targetArray.filter((singleData:any)=>{
       return singleData.title !== target.title && singleData.text !== target.text
     })
-    if (liste) {
-      this.data =dataNew
-    } else {
-      this.data2=dataNew
-    }
+
+    if (liste) {this.data =dataNew} else {this.data2=dataNew}
     
-     console.log("delte button clicked")
+    this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
 
 
   }
@@ -102,14 +100,13 @@ export class TodoPanelComponent implements OnInit {
     var duplicate = false
     this.data.forEach(element => {
     if (element['title'] === dataInput.title && element['text'] === dataInput.text) {
-      console.log(element)
-      console.log("Duplicate")
       duplicate = true;
       }
     });
 
     if (!duplicate) {
-      this.data.unshift({title:dataInput.title,text:dataInput.text})
+      this.data.unshift({ title: dataInput.title, text: dataInput.text })
+      this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
     }
     
   }

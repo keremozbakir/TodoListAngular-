@@ -21,7 +21,10 @@
 
 display: flex;
 justify-content :center;
-color:  #61574b4a; 
+/* color:  #61574b4a;  */
+
+font-size: 1.3rem;
+color:  #a726266e; 
 left: 21%;
 margin-top: 2%;
 

@@ -11,6 +11,7 @@ import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { WordBreakPipe } from './word-break.pipe';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
  
  
@@ -20,7 +21,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     TodoComponent,
     TodoPanelComponent,
     WordBreakPipe,
-    AddTodoComponent
+    AddTodoComponent,
+    NavbarComponent
   ],
   imports: [
   

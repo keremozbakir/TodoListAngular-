@@ -1,22 +1,9 @@
 
- <p>
-    <mat-toolbar >
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon (click)="opened=!opened">menu</mat-icon>
-      </button>
-      <span style="color:black">Todo Planner</span>
-      <span class="example-spacer"></span>
-      <button style="color:black" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-       
-    </mat-toolbar>
 
-        
-  </p>
   
-
+   <app-navbar (openPanel)="openPanel()"></app-navbar>
    <mat-sidenav-container>
+
     <mat-sidenav  mode="side" [(opened)]="opened">
       
       <app-add-todo (addNewTodo)="addNewTodo($event)" ></app-add-todo>
@@ -100,7 +87,7 @@
         [animation]="true"
         [subtitle]="'Complete'"
         [subtitleFontSize]="'30'"
-        [animationDuration]="2000"
+        [animationDuration]="1750"
             ></circle-progress>
 
      <app-todo class="drop-item"
