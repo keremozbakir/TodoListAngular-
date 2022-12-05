@@ -45,7 +45,8 @@ export class TodoPanelComponent implements OnInit {
   buttonDisplayDone: string = 'none';
   successPopUpMessage = 'Marked as Done!';
   deletePopUpMessage = 'Deleted !';
-  newTodoMessage  = "Added new Todo! "
+  newTodoMessage = "Added new Todo! "
+  returnToTODOMessage = "";
   ngOnInit(): void {
     this.percentage = String(this.data.length / this.data2.length)
     this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
@@ -129,13 +130,16 @@ export class TodoPanelComponent implements OnInit {
       )
         this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
         if (event.container.id == 'cdk-drop-list-2') {
-          console.log('its the bin')
           var value: Object = event.container.data
-          console.log(value)
           this.data2 = this.data2.filter(item => item !== value)
-          console.log(this.data2)
           this.bin = []
+          this.todoService.deleteTodo(this.deletePopUpMessage)
         }
+        if (event.container.id == 'cdk-drop-list-0') {
+           this.todoService.returnToTODO(this.returnToTODOMessage)
+        }if (event.container.id == 'cdk-drop-list-1') {
+          this.todoService.popUpSuccess(this.successPopUpMessage)
+       }
     }
 
   }

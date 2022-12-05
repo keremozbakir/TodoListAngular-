@@ -22,7 +22,9 @@ export class TodoService {
  
     this.notificationService.success('Marked as DONE!', message,this.popUpOptions )
   }
- 
+  returnToTODO(message: string) {
+    this.notificationService.success('Returned To TODO! !', message,this.popUpOptions )
+  }
 
   deleteTodo(message:string) {
     

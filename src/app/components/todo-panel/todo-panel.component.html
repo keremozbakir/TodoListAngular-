@@ -48,6 +48,7 @@
         class="droplist"
         (cdkDropListDropped)="onDrop($event)"
         [cdkDropListData]="data2"
+        
         >
 
         
@@ -63,6 +64,7 @@
            [buttondisplay]="buttonDisplayDone"
            [buttonText]="'Delete'"
            (deleteTodo)="deleteTodo('doneList',$event)"
+           (deleteMessage)="onDelete()"
     ></app-todo>  
     </div>
     
