@@ -2,10 +2,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { CdkDragDrop,moveItemInArray ,transferArrayItem} from '@angular/cdk/drag-drop';
 import { PercentageCalculatorService } from 'src/app/services/percentage-calculator.service';
 import { TodoService } from 'src/app/services/todo.service';
-import { coerceStringArray } from '@angular/cdk/coercion';
-import { JsonPipe } from '@angular/common';
+import { NotificationsService } from 'angular2-notifications';
 import { Todo } from 'src/app/todo';
-import { single } from 'rxjs';
+import { Title } from '@angular/platform-browser';
+ 
 
 
 
@@ -21,7 +21,7 @@ import { single } from 'rxjs';
   
 export class TodoPanelComponent implements OnInit {
 
-  constructor(private percentageCalc: PercentageCalculatorService, private todoService: TodoService) { }
+  constructor(private percentageCalc: PercentageCalculatorService, private todoService: TodoService,private notificationService: NotificationsService) { }
   
   @HostListener('window:unload', [ '$event' ])
    beforeUnloadHandler(event: { preventDefault: () => void; }) {
@@ -30,11 +30,10 @@ export class TodoPanelComponent implements OnInit {
    return false;   
   }
 
-
   unloadHandler(event: any) {
     this.terminateFunction( )
-  
   } 
+
   terminateFunction() {
     localStorage.setItem('data1',JSON.stringify(this.data))
   }
@@ -43,8 +42,10 @@ export class TodoPanelComponent implements OnInit {
   
   opened = false;
   percentage!: any;
-  
-  buttonDisplayDone:string='none'
+  buttonDisplayDone: string = 'none';
+  successPopUpMessage = 'Marked as Done!';
+  deletePopUpMessage = 'Deleted !';
+  newTodoMessage  = "Added new Todo! "
   ngOnInit(): void {
     this.percentage = String(this.data.length / this.data2.length)
     this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
@@ -53,12 +54,13 @@ export class TodoPanelComponent implements OnInit {
     //this.data =JSON.parse(dataTemp)
   }
   openPanel() { this.opened = !this.opened };
-  
+
   addToDone(datam: any) {
     const target ={
       "title": datam.title,
       "text":datam.text
     }
+
     const dataNew =this.data.filter((singleData)=>{
       return singleData.title !== target.title && singleData.text !== target.text
     })
@@ -74,9 +76,7 @@ export class TodoPanelComponent implements OnInit {
       "title": datam.title,
       "text":datam.text
     }
-    console.log(arr);
-    console.log("------------------------------------------")
-    console.log(datam)
+  
     if (arr === "todoList") {
       targetArray = this.data; 
       liste = true
@@ -112,14 +112,6 @@ export class TodoPanelComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
   onDrop(event: CdkDragDrop<any[]>) {
 
       if (event.previousContainer === event.container) {
@@ -147,6 +139,27 @@ export class TodoPanelComponent implements OnInit {
     }
 
   }
+
+  onSuccess() { this.todoService.popUpSuccess(this.successPopUpMessage)}
+  
+
+  onDelete( ) {
+     this.todoService.deleteTodo(this.deletePopUpMessage)
+  }
+  
+  onNewTodo() {
+    this.todoService.addNewTodo(this.newTodoMessage)
+  }
+
+
+
+
+
+
+
+
+
+
 
   bin:any=[]
 

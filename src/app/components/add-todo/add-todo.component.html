@@ -16,7 +16,7 @@
         <mat-label>Further explanations</mat-label>
         <textarea matInput placeholder="Ex. I have to do some cardio..." id="text" name="text" #text formControlName="text"></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="saveTodo(title.value,text.value)">Save</button>
+    <button mat-raised-button color="primary" (click)="saveTodo(title.value,text.value)" (click)="addNewTodoMessage()">Save</button>
 </form>
 
 </div>

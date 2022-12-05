@@ -15,9 +15,12 @@ export class TodoComponent implements OnInit {
   @Input() title = 'this is the title';
   @Input() buttondisplay = 'initial';
   @Input() buttonText = 'De';
+   
 
   @Output() addToDone = new EventEmitter; 
   @Output() deleteTodo = new EventEmitter;
+  @Output() successMessage = new EventEmitter;
+  @Output() deleteMessage = new EventEmitter;
   ngOnInit(): void {
   }
   display: string = "none"
@@ -28,6 +31,13 @@ export class TodoComponent implements OnInit {
   }
   delTodo(title: string, text: string) {
     this.deleteTodo.emit({ title:title,text:text})
+  }
+
+  successMessageOnClick( ) {
+    this.successMessage.emit();
+  }
+  deleteMessageOnClick() {
+    this.deleteMessage.emit();
   }
 }
  

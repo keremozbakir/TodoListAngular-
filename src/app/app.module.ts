@@ -12,7 +12,7 @@ import { WordBreakPipe } from './word-break.pipe';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
  
  
  @NgModule({
@@ -25,7 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
-  
+    SimpleNotificationsModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

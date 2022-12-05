@@ -11,6 +11,8 @@ export class AddTodoComponent implements OnInit {
   constructor(private fb : FormBuilder) { }
   
   @Output() addNewTodo: EventEmitter<any> = new EventEmitter();
+  @Output() newTOdoMessage = new EventEmitter();
+  
   myForm!: FormGroup;
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -25,8 +27,10 @@ export class AddTodoComponent implements OnInit {
     if (title == ""  ) {
       return 
     }
-    let data={title:title,text:text}
-    this.addNewTodo.emit(data)
-    console.log(title,text)
+    this.addNewTodo.emit({title:title,text:text})
+  }
+
+  addNewTodoMessage() {
+    this.newTOdoMessage.emit();
   }
 }

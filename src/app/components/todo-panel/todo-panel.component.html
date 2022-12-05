@@ -6,7 +6,7 @@
 
     <mat-sidenav  mode="side" [(opened)]="opened">
       
-      <app-add-todo (addNewTodo)="addNewTodo($event)" ></app-add-todo>
+      <app-add-todo (addNewTodo)="addNewTodo($event)" (newTOdoMessage)="onNewTodo()" ></app-add-todo>
     </mat-sidenav>
      
  
@@ -35,6 +35,8 @@
            (addToDone)='addToDone($event)'
            buttonText="Delete"
            (deleteTodo)="deleteTodo('todoList',$event)"
+           (successMessage)="onSuccess()"
+           (deleteMessage)="onDelete()"
        ></app-todo>  
     </div>
       
@@ -74,7 +76,7 @@
      
      >
      <h2 class="column-title">Delete</h2>
-     <h5 class="column-title">(Drop here to delete!)</h5>
+     <h5 class="column-title" style="font-size: 1rem;">(Drop here to delete!)</h5>
      <circle-progress
         class="circular-progress"
         [percent]="percentage"
@@ -99,7 +101,7 @@
     </div>
     </div>
     
-
+    <simple-notifications ></simple-notifications>
   </mat-sidenav-container>
 
   
