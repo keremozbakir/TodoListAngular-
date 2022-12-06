@@ -24,7 +24,12 @@ export class TodoComponent implements OnInit {
   ngOnInit(): void {
   }
   display: string = "none"
+  backgroundColorLight = "#119DA4";
+  backgroundColorDark = "#787878";
+  @Input() defaultColor!:boolean;
+
   
+
   moveToDone(title:string,text:string) {
     console.log(title, text)
     this.addToDone.emit({ title:title,text:text})
@@ -32,6 +37,11 @@ export class TodoComponent implements OnInit {
   delTodo(title: string, text: string) {
     this.deleteTodo.emit({ title:title,text:text})
   }
+
+  toggleMode() {
+    this.defaultColor = !this.defaultColor;
+  }
+
 
   successMessageOnClick( ) {
     this.successMessage.emit();

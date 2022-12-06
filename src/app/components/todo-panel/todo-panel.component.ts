@@ -1,11 +1,11 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragDrop,moveItemInArray ,transferArrayItem} from '@angular/cdk/drag-drop';
 import { PercentageCalculatorService } from 'src/app/services/percentage-calculator.service';
 import { TodoService } from 'src/app/services/todo.service';
 import { NotificationsService } from 'angular2-notifications';
 import { Todo } from 'src/app/todo';
 import { Title } from '@angular/platform-browser';
- 
+
 
 
 
@@ -16,7 +16,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./todo-panel.component.css']
 })
   
-  
+//#564f4f73 dark background
   
   
 export class TodoPanelComponent implements OnInit {
@@ -47,6 +47,18 @@ export class TodoPanelComponent implements OnInit {
   deletePopUpMessage = 'Deleted !';
   newTodoMessage = "Added new Todo! "
   returnToTODOMessage = "";
+
+  bgColor  = "#787878"
+  defaultColor = true;
+  percentageColor!: string;
+  outerStrokeColor!: string;
+  innerStrokeColor!: string;
+  //[outerStrokeColor]="'#78C000'"
+  //[innerStrokeColor]="'#C7E596'"
+
+
+  @Input() columnTitleColor!: boolean;
+
   ngOnInit(): void {
     this.percentage = String(this.data.length / this.data2.length)
     this.percentage=this.percentageCalc.calculatePercentage(this.data.length, this.data2.length)
@@ -56,11 +68,26 @@ export class TodoPanelComponent implements OnInit {
   }
   openPanel() { this.opened = !this.opened };
 
+  toggleMode(){
+    this.defaultColor = !this.defaultColor
+    if (this.defaultColor) {
+      this.percentageColor = "black";
+      this.innerStrokeColor = "#78C000";
+      this.outerStrokeColor = "#C7E596"
+    } else {
+      this.percentageColor = "white";
+      this.innerStrokeColor = "#0c7abc";
+      this.outerStrokeColor = "#0c7ade";
+
+    }
+  }
+
   addToDone(datam: any) {
     const target ={
       "title": datam.title,
       "text":datam.text
     }
+  
 
     const dataNew =this.data.filter((singleData)=>{
       return singleData.title !== target.title && singleData.text !== target.text

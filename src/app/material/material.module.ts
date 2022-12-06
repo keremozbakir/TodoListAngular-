@@ -8,7 +8,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const materials = [
   CommonModule,
@@ -20,6 +20,7 @@ const materials = [
   MatToolbarModule,
   MatIconModule,
   MatDatepickerModule,
+  MatSlideToggleModule
   
 
 ]

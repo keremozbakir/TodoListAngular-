@@ -3,7 +3,7 @@
    
 
 
-  <mat-card cdkDrag class="todo">
+  <mat-card cdkDrag class="todo" [ngStyle]="{'background':defaultColor ? '#119DA4' :'#787878'}">
     <mat-card-header>
       <mat-card-title class="card-title">{{title}}</mat-card-title>
       <mat-card-subtitle class="card-text">{{text | wordBreak}}</mat-card-subtitle>

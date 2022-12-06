@@ -1,7 +1,7 @@
 
 
   
-   <app-navbar (openPanel)="openPanel()"></app-navbar>
+   <app-navbar (openPanel)="openPanel()" (toggleMode)="toggleMode()"></app-navbar>
    <mat-sidenav-container>
 
     <mat-sidenav  mode="side" [(opened)]="opened">
@@ -10,7 +10,7 @@
     </mat-sidenav>
      
  
-    <div class="todo-panel">
+    <div class="todo-panel"  [ngStyle]="{'background' : defaultColor ? '#dedede' : '#564f4f73'}" >
       
         <div 
         cdkDropList
@@ -25,10 +25,12 @@
         
 
         
-        <h2 class="column-title"> Todos ({{data.length}})</h2>
+        <h2 class="column-title" [ngStyle]="{'color' : defaultColor ? '#a726266e' : '#ff07076e'}"> Todos ({{data.length}})</h2>
        
-        <app-todo class="drop-item"
-        
+        <app-todo
+        class="drop-item"
+        [defaultColor]="defaultColor"
+
         *ngFor="let item of data"
            [title]="item.title"
            [text]="item.text"
@@ -54,10 +56,10 @@
         
 
 
-        <h2 class="column-title"> Done ({{data2.length}})</h2>
+        <h2 class="column-title" [ngStyle]="{'color' : defaultColor ? '#a726266e' : '#ff07076e'}"> Done ({{data2.length}})</h2>
         <app-todo 
         class="drop-item"
-
+        [defaultColor]="defaultColor"
         *ngFor="let item of data2"
            [title]="item.title"
            [text]="item.text"
@@ -77,17 +79,20 @@
       [cdkDropListData]="bin"
      
      >
-     <h2 class="column-title">Delete</h2>
-     <h5 class="column-title" style="font-size: 1rem;">(Drop here to delete!)</h5>
+     <h2 class="column-title" [ngStyle]="{'color' : defaultColor ? '#a726266e' : '#ff07076e'}" >Delete</h2>
+     <h5 class="column-title" style="font-size: 1rem;" [ngStyle]="{'color' : defaultColor ? '#a726266e' : '#ff07076e'}" >(Drop here to delete!)</h5>
      <circle-progress
         class="circular-progress"
         [percent]="percentage"
+        
         [radius]="150"
         [outerStrokeWidth]="16"
         [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#78C000'"
-        [innerStrokeColor]="'#C7E596'"
+        [outerStrokeColor]="outerStrokeColor"
+        [innerStrokeColor]="innerStrokeColor"
         [unitsFontSize]="'20'"
+        [unitsColor]="percentageColor"
+        [titleColor]="percentageColor"
         [animation]="true"
         [subtitle]="'Complete'"
         [subtitleFontSize]="'30'"
