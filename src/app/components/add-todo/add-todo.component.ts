@@ -12,7 +12,8 @@ export class AddTodoComponent implements OnInit {
   
   @Output() addNewTodo: EventEmitter<any> = new EventEmitter();
   @Output() newTOdoMessage = new EventEmitter();
-  
+  isDisabled = true;
+  inputText = '';
   myForm!: FormGroup;
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -22,12 +23,18 @@ export class AddTodoComponent implements OnInit {
 
   }
 
-
+  noBlank(d:string) { 
+   return d.replace(/ /g,'')
+  }
+  
   saveTodo(title: string, text: string) {
     if (title == ""  ) {
       return 
+    } else {
+      this.isDisabled = false;
+      this.addNewTodo.emit({title:title,text:text})
     }
-    this.addNewTodo.emit({title:title,text:text})
+    
   }
 
   addNewTodoMessage() {

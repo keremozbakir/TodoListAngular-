@@ -87,7 +87,9 @@ export class TodoPanelComponent implements OnInit {
       "title": datam.title,
       "text":datam.text
     }
-  
+    if (datam.title === "") {
+      return
+    }
 
     const dataNew =this.data.filter((singleData)=>{
       return singleData.title !== target.title && singleData.text !== target.text

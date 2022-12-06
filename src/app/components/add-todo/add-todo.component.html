@@ -9,14 +9,14 @@
 <form class="example-form" [formGroup]="myForm" >
     <mat-form-field class="example-full-width">
         <mat-label>Title</mat-label>
-        <input required matInput placeholder="Ex. Pizza"  id="title" name="title" #title formControlName="title">
+        <input required matInput placeholder="Ex. Pizza"  id="title" name="title" #title formControlName="title" [(ngModel)]="inputText">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
         <mat-label>Further explanations</mat-label>
         <textarea matInput placeholder="Ex. I have to do some cardio..." id="text" name="text" #text formControlName="text"></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="saveTodo(title.value,text.value)" (click)="addNewTodoMessage()">Save</button>
-</form>
+    <button mat-raised-button color="primary"  [disabled]="noBlank(inputText)  === '' " (click)="saveTodo(title.value,text.value)" (click)="addNewTodoMessage()">Save</button>
+ </form>
 
 </div>
