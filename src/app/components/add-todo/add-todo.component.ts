@@ -1,4 +1,4 @@
-import { Component, OnInit,Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit,Output ,Input,EventEmitter} from '@angular/core';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -12,6 +12,8 @@ export class AddTodoComponent implements OnInit {
   
   @Output() addNewTodo: EventEmitter<any> = new EventEmitter();
   @Output() newTOdoMessage = new EventEmitter();
+  @Input() defaultColor!: boolean;
+  
   isDisabled = true;
   inputText = '';
   myForm!: FormGroup;

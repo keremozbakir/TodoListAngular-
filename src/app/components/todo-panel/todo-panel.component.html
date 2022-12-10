@@ -4,7 +4,7 @@
    <app-navbar (openPanel)="openPanel()" (toggleMode)="toggleMode()"></app-navbar>
    <mat-sidenav-container>
 
-    <mat-sidenav  mode="side" [(opened)]="opened">
+    <mat-sidenav [ngStyle]="{'background-color':defaultColor ? '#119da4' :'#787878'}" mode="side" [(opened)]="opened">
       
       <app-add-todo (addNewTodo)="addNewTodo($event)" (newTOdoMessage)="onNewTodo()" ></app-add-todo>
     </mat-sidenav>

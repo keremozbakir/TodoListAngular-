@@ -16,7 +16,9 @@ mat-toolbar.mat-primary {
   color: #fff;
 }
 
-
+.mat-drawer-inner-container{
+  background-color: green;
+}
 /* .text-input-area{
     display: flex;
     flex-direction: column;

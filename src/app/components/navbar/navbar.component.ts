@@ -14,12 +14,13 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  defaultColor = true;
   openPanelOnClick() {
     this.openPanel.emit()
   }
   onToggle() {
     console.log("Hey theree!! toggled")
+    this.defaultColor = !this.defaultColor;
     this.toggleMode.emit()
   }
   opened = false;
