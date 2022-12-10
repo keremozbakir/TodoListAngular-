@@ -1,15 +1,21 @@
 <p>
     <mat-toolbar [ngStyle]="{'background-color':defaultColor ? '#dedede' : '#413E3E' }">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon [ngStyle]="{'color':defaultColor ? 'black' :'white'}" (click)="openPanelOnClick()">menu</mat-icon>
-      </button>
-      <span [ngStyle]="{'color':defaultColor ? 'black' :'white'}">Task Tracker</span>
-      <span class="example-spacer"></span>
-      <button [ngStyle]="{'color':defaultColor ? 'black' :'white'}"  mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-
-      </button>
+      
+      
       <div class="left-icons">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon [ngStyle]="{'color':defaultColor ? 'black' :'white'}" (click)="openPanelOnClick()">menu</mat-icon>
+        </button>
+        <span [ngStyle]="{'color':defaultColor ? 'black' :'white'}">Task Tracker</span>
+        <mat-icon class="heart-icon" >favorite</mat-icon>
+        
+        <!-- <button [ngStyle]="{'color':defaultColor ? 'black' :'white'}"  mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"></button> -->
+
+        
+      </div>
+
+      <div class="right-icons">
+
         <mat-slide-toggle class="toggle-button" (click)="onToggle()" > </mat-slide-toggle>
         <img src="../../../assets/images/moon.png"  style="width: 23px; margin-left:20px">
       </div>

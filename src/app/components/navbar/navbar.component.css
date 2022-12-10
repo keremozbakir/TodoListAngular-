@@ -1,5 +1,18 @@
-.left-icons{
+/* .left-icons{
     position: relative;
-    left:1400px;
+    right:  20vw;
     margin-top: 6px;
+} */
+body{
+    width:100vw;
+}
+mat-toolbar{
+    display: flex;
+    justify-content: space-between;
+}
+.heart-icon{
+    position: relative;
+    margin-left:12px;
+    top: 7px;
+    color:red
 }
